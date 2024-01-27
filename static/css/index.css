@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Poppins&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins";
+  text-decoration: none;
+}
+:root {
+  --secondary-bg: #fafafa;
+  --green: #71b390;
+  --orange: #e67d48;
+}
+html {
+  scroll-behavior: smooth;
+  -webkit-tap-highlight-color: transparent;
+}
+header {
+  background: var(--secondary-bg);
+}
+header nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 1.5em;
+}
+header nav a {
+  color: var(--green);
+  font-weight: 700;
+}
+#create-task-btn {
+  background: var(--green);
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  gap: 1em;
+  font-size: 0.8rem;
+
+  & i {
+    margin-top: -0.4em;
+  }
+}
+
+.main {
+  margin: 1em 1.5em;
+}
+#search-todo-container {
+  position: relative;
+
+  & input {
+    width: 100%;
+    padding: 12px;
+    padding-left: 50px;
+    outline: none;
+    border: none;
+    background: var(--secondary-bg);
+
+    &:focus {
+      border: 1.5px solid var(--green);
+    }
+  }
+
+  & i {
+    position: absolute;
+    top: 10%;
+    left: 5%;
+    font-size: 1.2rem;
+  }
+}
+
+.todo-lists {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+  margin-top: 2em;
+}
+.todo-item {
+  display: flex;
+  gap: 1em;
+  justify-content: space-between;
+  padding: 0.5em;
+  background: var(--secondary-bg);
+
+  & .todo-main {
+    flex: 1;
+    text-align: justify;
+
+    & h3 {
+      font-size: 0.9rem;
+      margin-bottom: 0.5em;
+    }
+
+    & p {
+      font-size: 0.7rem;
+    }
+  }
+
+  & .todo-action-btns {
+    display: flex;
+    gap: 0.5em;
+    font-size: 1.4rem;
+
+    & a {
+      height: max-content;
+    }
+
+    & a:first-child {
+      color: var(--orange);
+    }
+
+    & a:last-child {
+      color: var(--green);
+    }
+  }
+}
+
+/* Scroll to top button */
+#scroll-to-top-btn {
+  background: var(--green);
+  padding: 5px 8px;
+  padding-top: 2px;
+  border-radius: 50%;
+  color: #fff;
+  position: fixed;
+  bottom: 10%;
+  right: 10%;
+  z-index: 99;
+
+  & i {
+    font-size: 1rem;
+  }
+}
+
+.modal-container {
+  background: rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100vh;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  padding: 2em;
+  backdrop-filter: blur(2px);
+  z-index: 999;
+}
+#delete-todo-modal {
+  box-shadow: hsl(0, 0%, 95%) 0 0 2px;
+  background: #fff;
+  padding: 1em;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 1em;
+  width: max-content;
+
+  & i {
+    background: red;
+    opacity: 0.6;
+    padding: 5px 15px;
+    padding-top: 0px;
+    padding-bottom: 12px;
+    font-size: 3rem;
+    width: max-content;
+    color: #fff;
+    border-radius: 50%;
+  }
+
+  & .action-btns {
+    display: flex;
+    align-items: center;
+    gap: 1em;
+
+    & button {
+      background: none;
+      color: blue;
+      border: 1px solid blue;
+      padding: 5px 20px;
+      border-radius: 50px;
+      transition: all 0.2s linear;
+
+      &:hover {
+        background: blue;
+        color: #fff;
+        opacity: 0.7;
+      }
+    }
+
+    & a {
+      color: red;
+      border: 1px solid red;
+      padding: 5px 20px;
+      border-radius: 50px;
+      transition: all 0.2s linear;
+
+      &:hover {
+        background: red;
+        color: #fff;
+        opacity: 0.7;
+      }
+    }
+  }
+}
+
+
+/* Create todo form */
+
+#todo-form .form-input input,
+#todo-form .form-input textarea {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  outline: none;
+  background: var(--secondary-bg);
+  display: inline-block;
+  margin: 0.5em 0 0;
+  
+  &:focus {
+    border: 1.5px solid var(--green);
+  }
+}
+#todo-form .form-input textarea {
+  height: 100px;
+  resize: none;
+}
+#todo-form button {
+  background: var(--green);
+  color: #fff;
+  border: none;
+  width: 100%;
+  padding: 10px;
+  display: inline-block;
+  margin-top: 1em;
+  border-radius: 10px;
+}
