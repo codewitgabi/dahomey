@@ -24,6 +24,11 @@ header nav {
   justify-content: space-between;
   align-items: center;
   padding: 1em 1.5em;
+  
+  @media (min-width: 768px) {
+    width: 800px;
+    margin: 0 auto;
+  }
 }
 header nav a {
   color: var(--green);
@@ -46,6 +51,11 @@ header nav a {
 
 .main {
   margin: 1em 1.5em;
+  
+  @media (min-width: 768px) {
+    width: 800px;
+    margin: 2em auto 1em;
+  }
 }
 #search-todo-container {
   position: relative;

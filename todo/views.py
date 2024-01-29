@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from .models import Todo
+from .forms import TodoForm
 
 
 def index(request):
@@ -29,3 +30,20 @@ def createTodo(request):
         return redirect("index")
 
     return render(request, "create-todo.html")
+
+
+def updateTodo(request, todoId):
+    todo = Todo.objects.get(id=todoId)
+
+    form = TodoForm(instance=todo)
+
+    if request.method == "POST":
+        form = TodoForm(request.POST, instance=todo)
+
+        if form.is_valid:
+            form.save()
+            
+            return redirect("index")
+
+    return render(request, "update-todo.html", {"form": form})
+
