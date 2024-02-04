@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django_ratelimit.decorators import ratelimit
 from .models import Todo
 from .forms import TodoForm
 
@@ -16,6 +17,7 @@ def index(request):
     return render(request, "index.html", context)
 
 
+@ratelimit(key="ip", rate="5/m")
 def createTodo(request):
     if request.method == "POST":
         title = request.POST.get("title")

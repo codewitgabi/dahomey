@@ -1,13 +1,16 @@
-const modal = document.querySelector(".modal-container");
+const modal = document.querySelectorAll(".modal-container");
 const deleteBtns = document.querySelectorAll(".delete-btn");
 
-document.querySelector("#close-id").addEventListener("click", () => {
-  modal.style.display = "none";
-});
+const closeModalBtns = document.querySelectorAll(".close-modal")
 
-deleteBtns.forEach(btn => {
+deleteBtns.forEach((btn, idx) => {
   btn.addEventListener("click", () => {
-    modal.style.display = "flex";
-    // console.log(btn?.dataset?.itemid)
+    modal[idx].style.display = "flex";
   });
 });
+
+closeModalBtns.forEach((btn, idx) => {
+  btn.addEventListener("click", () => {
+    modal[idx].style.display = "none";
+  })
+})
